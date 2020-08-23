@@ -1,13 +1,11 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <stack>
 #include <queue>
 using namespace std;
 
 vector<vector<int>> adj;
 queue<int>que;
-stack<int>st;
 
 int n, m;
 int visit1[1001];
@@ -15,21 +13,12 @@ int visit2[1001];
 
 void DFS(int start)
 {
-	st.push(start);
 	visit1[start] = 1;
-	while ( !st.empty() )
+	cout << now << " ";
+	for ( int i = 0; i < adj[now].size(); i++ )
 	{
-		int now = st.top();
-		cout << now << " ";
-		st.pop();
-		for ( int i = 0; i < adj[now].size(); i++ )
-		{
-			if ( !visit1[adj[now][i]] )
-			{
-				visit1[adj[now][i]] = 1;
-				DFS(adj[now][i]);
-			}
-		}
+		if ( !visit1[adj[now][i]] )
+			DFS(adj[now][i]);
 	}
 }
 
