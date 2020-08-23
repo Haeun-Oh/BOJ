@@ -3,17 +3,14 @@
 #include <vector>
 #include <queue>
 using namespace std;
-
 vector<vector<int>> adj;
 queue<int>que;
-
 int n, m;
 int visit1[1001];
 int visit2[1001];
-
-void DFS(int start)
+void DFS(int now)
 {
-	visit1[start] = 1;
+	visit1[now] = 1;
 	cout << now << " ";
 	for ( int i = 0; i < adj[now].size(); i++ )
 	{
@@ -21,7 +18,6 @@ void DFS(int start)
 			DFS(adj[now][i]);
 	}
 }
-
 void BFS(int start)
 {
 	que.push(start);
@@ -40,16 +36,14 @@ void BFS(int start)
 			}
 		}
 	}
-
 }
 int main(int argc, char** argv)
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-
 	int v;
-	cin >> n >>m >>v;
+	cin >> n >> m >> v;
 	adj.resize(n + 1);
 	for ( int i = 0; i < m; i++ )
 	{
@@ -63,6 +57,5 @@ int main(int argc, char** argv)
 	DFS(v);
 	cout << "\n";
 	BFS(v);
-
 	return 0;
 }
