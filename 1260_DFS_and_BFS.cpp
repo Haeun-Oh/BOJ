@@ -9,7 +9,7 @@ vector<vector<int>> adj;
 queue<int>que;
 stack<int>st;
 
-int n, m, cnt;
+int n, m;
 int visit1[1001];
 int visit2[1001];
 
