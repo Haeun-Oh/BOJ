@@ -27,7 +27,6 @@ void BFS()
 		int fx = que.front().nx;
 		int fy = que.front().my;
 		int fday = que.front().day;
-		visit[fz][fx][fy] = 1;
 		que.pop();
 
 		for ( int i = 0; i < 6; i++ )
