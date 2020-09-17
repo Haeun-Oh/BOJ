@@ -11,15 +11,15 @@ int dfs(int cur)
 {
 	if ( dp[cur] )
 		return dp[cur];
-	int cnt=1;
+	dp[cur]=1;
 	for ( int i = 0; i < vec[cur].size(); i++ )
 	{
 		int next = vec[cur][i];
 		if ( vec[cur].size() < vec[next].size() )
-			cnt = max(dfs(next) + 1, cnt);
+			dp[cur] = max(dfs(next) + 1, dp[cur]);
 	}
 		
-	return dp[cur]=cnt;
+	return dp[cur];
 }
 
 int main()
