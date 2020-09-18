@@ -1,60 +1,9 @@
 #include <iostream>
-#include <algorithm>
 #include <string>
 using namespace std;
 
 int n;
 string str;
-
-string func(string s, int sSize)
-{
-	if ( s[sSize - 1] == 'a' )
-		s += "s";
-	else if ( s[sSize - 1] == 'i' || s[sSize - 1] == 'y' )
-	{
-		s[sSize - 1] = 'i'; s += "os";
-	}
-	else if ( s[sSize - 1] == 'l' )
-	{
-		s += "es";
-	}
-	else if ( s[sSize - 1] == 'n' )
-	{
-		s[sSize - 1] = 'a'; s += "nes";
-	}
-	else if ( s[sSize - 1] == 'e' && s[sSize - 2] == 'n' )
-	{
-		s[sSize - 2] = 'a'; s[sSize - 1] = 'n'; s += "es";
-	}
-	else if ( s[sSize - 1] == 'o' )
-	{
-		s += 's';
-	}
-	else if ( s[sSize - 1] == 'r' )
-	{
-		s += "es";
-	}
-	else if ( s[sSize - 1] == 't' )
-	{
-		s += "as";
-	}
-	else if ( s[sSize - 1] == 'u' )
-	{
-		s += "s";
-	}
-	else if ( s[sSize - 1] == 'v' )
-	{
-		s += "es";
-	}
-	else if ( s[sSize - 1] == 'w' )
-	{
-		s += "as";
-	}
-	else
-	{
-		s += "us";
-	} cout << s << '\n';
-}
 
 int main()
 {
@@ -62,14 +11,46 @@ int main()
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	int a, b, MAX=0;
 	cin >> n;
 
 	while(n-- )
 	{
 		cin >> str;
-		int size = str.size();
-		cout << func(str, size)<<"\n";
+		if ( str.back() == 'a' )
+			str += "s";
+		else if ( str.back() == 'i' || str.back() == 'y' )
+		{
+			str.pop_back();
+			str += "ios";
+		}
+		else if ( str.back() == 'l' )
+			str += "es";
+		else if ( str.back() == 'n' )
+		{
+			str.pop_back();
+			str += "anes";
+		}
+		else if ( str.back() == 'e' && str[str.size() - 2] == 'n' )
+		{
+			str[str.size() - 2] = 'a'; 
+			str[str.size() - 1] = 'n'; 
+			str += "es";
+		}
+		else if ( str.back() == 'o' )
+			str += "s";
+		else if ( str.back() == 'r' )
+			str += "es";
+		else if ( str.back() == 't' )
+			str += "as";
+		else if ( str.back() == 'u' )
+			str += "s";
+		else if ( str.back() == 'v' )
+			str += "es";
+		else if ( str.back() == 'w' )
+			str += "as";
+		else
+			str += "us"; 
+		cout << str << '\n';
 	}
 
 	return 0;
