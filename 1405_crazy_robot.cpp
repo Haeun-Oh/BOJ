@@ -19,12 +19,8 @@ void dfs(int x, int y, double cnt)
 	visit[y][x] = true;
 	for ( int i = 0; i < 4; i++ )
 	{
-        if(percent[i]==0.0)
-            continue;
 		int nextx = x + dx[i];
 		int nexty = y + dy[i];
-        if(nextx<0 ||nexty<0||nextx>30||nexty>30)
-            continue;
         
 		if ( !visit[nexty][nextx] )
 		{
